@@ -11,21 +11,25 @@
 	<div class="row text-center">
 		<h1>Hangman</h1>
 	</div>
-	<div class="row">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-6">
+	<div class="row text-center">
+		<div class="col-xs-12">
 			<div class="text-center" id="phrase">
 			</div>
-			<div class=" guesses text-center">
+	</div>
+	<div class="row text-center">
+			<div class=" col-xs-12">
 				<h4>Letters Guessed</h4>
 				<h6 id="incorrect"></h6>
 			</div>
-		</div>
-		<div class="col-xs-4">
-			<canvas id="gallows">
-			</canvas>
-		</div>
-		<div class="col-xs-1"></div>
+	</div>
+	<div class="row text-center">
+		<input type="text" id="userGuess" placeholder="Guess a letter">
+		<button onclick="userGuess()">Submit</button>
+	</div>
+	<br />
+	<div class="row text-center">
+		<input type="text" id="userPhrase" placeholder="Input word or phrase">
+		<button onclick="createPhraseArray()">Submit</button>
 	</div>
 	<script src="main.js"></script>
 </body>
