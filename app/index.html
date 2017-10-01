@@ -22,15 +22,57 @@
 				<h6 id="incorrect"></h6>
 			</div>
 	</div>
+
+	<div id="phraseDiv">
 	<div class="row text-center">
-		<input type="text" id="userGuess" placeholder="Guess a letter">
-		<button onclick="userGuess()">Submit</button>
+		<div class="col-xs-3"></div>
+		<div class="col-xs-6">
+			<h3>Input a Word or Phrase</h3>
+		</div>
+		<div class="col-xs-3"></div>
 	</div>
-	<br />
 	<div class="row text-center">
-		<input type="text" id="userPhrase" placeholder="Input word or phrase">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-6">
+			<input type="text" id="userPhrase" onkeypress="return letterOrSpace(event)" placeholder="Input word or phrase">
+		</div>
+		<div class="col-xs-3"></div>
+	</div>
+	<br>
+	<div class="row text-center">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-6">
 		<button onclick="createPhraseArray()">Submit</button>
+		</div>
+		<div class="col-xs-3"></div>
 	</div>
+	</div>
+
+	<div id="guessDiv">
+	<div class="row text-center">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-6">
+			<h3>Input Guess</h3>
+		</div>
+		<div class="col-xs-3"></div>
+	</div>
+	<div class="row text-center">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-6">
+		<input type="text" id="userGuess" maxlength="1" onkeypress="return isAlfa(event)" placeholder="Guess a letter">
+		</div>
+		<div class="col-xs-3"></div>
+	</div>
+	<br>
+	<div class="row text-center">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-6">
+		<button onclick="userGuess()">Submit</button>
+		</div>
+		<div class="col-xs-3"></div>
+	</div>
+	</div>
+
 	<script src="main.js"></script>
 </body>
 </html>
