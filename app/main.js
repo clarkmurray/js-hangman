@@ -2,7 +2,7 @@ var phraseWindow = document.getElementById('phrase');
 var guessCounter = 6;
 var hiddenPhrase = [];
 var incorrectLetters = document.getElementById('incorrect');
-var alreadyGuessed = [];
+var alreadyGuessed = [""];
 var phraseCheck = 0;
 var phrase;
 var canvas =document.getElementById("gallows");
@@ -14,6 +14,7 @@ function victory() {
 	var guessDiv = document.getElementById('guessDiv');
 	win.style.display = "block";
 	guessDiv.style.display = "none";
+	document.getElementById('winAgain').focus();
 }
 
 
@@ -32,6 +33,9 @@ function createGallows() {
 
 function createPhraseArray() {
 	phrase = document.getElementById('userPhrase').value;
+	if (!(/[a-z]/i.test(phrase))) {
+		return false;
+	}
 	var phraseDiv = document.getElementById('phraseDiv');
 	var guessDiv = document.getElementById('guessDiv');
 	var incorrectDiv = document.getElementById('incorrectLetters');
@@ -43,6 +47,7 @@ function createPhraseArray() {
 	incorrectDiv.style.display = 'block';
 	hidePhrase();
 }
+
 
 document.getElementById('userPhrase').addEventListener('keypress', function(event) {
         if (event.keyCode == 13) {
@@ -133,6 +138,8 @@ function userGuess() {
 			lossMessage.innerHTML = "You're out of guesses! The correct answer was " + phrase;
 			var guessDiv = document.getElementById('guessDiv');
 			guessDiv.style.display = "none";
+			document.getElementById('loseAgain').focus();
+
 		}
 
 	}
@@ -153,7 +160,6 @@ function isLetter(evt) {
     	alert("Letters only");
         return false;
     }
-    document.getElementById("createGuess").disabled = false;
     return true;
 
 }
@@ -165,7 +171,6 @@ function letterOrSpace(evt) {
     	alert("Letters or spaces only");
         return false;
     }
-    document.getElementById("createPhrase").disabled = false;
     return true;
 
 }

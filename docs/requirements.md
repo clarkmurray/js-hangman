@@ -1,7 +1,5 @@
 # Task List
 
-[ ] "" not accepted for guess input
-[x] Submit inputs on [Enter]
 [ ] AJAX
 [ ] Require validating user phrase
 [ ] New characters for hidden letters
@@ -12,6 +10,6 @@
 
 ## Stretch Goals
 
-[ ] Better "restartGame" function--doesn't require refreshing browser
 [ ] Better input error notifications--no alerts
+[ ] Better "restartGame" function--doesn't require refreshing browser
 [ ] Connect to an API to play against the computer

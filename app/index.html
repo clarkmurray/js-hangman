@@ -25,7 +25,7 @@
 	    		live to play another game.
 	    		<br>
 	    		<br>
-	    		<button type="button" onclick="restartGame()">Play Again</button>
+	    		<button type="button" onclick="restartGame()" id="winAgain">Play Again</button>
 	    		</div>
 	  		</div>
 	  	</div>
@@ -41,7 +41,7 @@
 	    			<div id="lossMessage"></div>
 	    			<br>
 	    			<br>
-	    			<button type="button" onclick="restartGame()">Play Again</button>
+	    			<button type="button" onclick="restartGame()" id="loseAgain">Play Again</button>
 	    		</div>
 	  		</div>
 	  	</div>
@@ -79,7 +79,7 @@
 	<div class="row text-center">
 		<div class="col-xs-3"></div>
 		<div class="col-xs-6">
-			<input type="password" id="userPhrase" onkeypress="return letterOrSpace(event)" placeholder="Input word or phrase">
+			<input type="text" id="userPhrase" onkeypress="return letterOrSpace(event)" placeholder="Input word or phrase">
 		</div>
 		<div class="col-xs-3"></div>
 	</div>
@@ -87,7 +87,7 @@
 	<div class="row text-center">
 		<div class="col-xs-3"></div>
 		<div class="col-xs-6">
-		<button type="button" onclick="createPhraseArray()" id="createPhrase" disabled>Submit</button>
+		<button type="button" onclick="createPhraseArray()" id="createPhrase">Submit</button>
 		</div>
 		<div class="col-xs-3"></div>
 	</div>
@@ -112,7 +112,7 @@
 	<div class="row text-center">
 		<div class="col-xs-3"></div>
 		<div class="col-xs-6">
-		<button onclick="userGuess()" id="createGuess" disabled>Submit</button>
+		<button onclick="userGuess()" id="createGuess">Submit</button>
 		<br>
 		<br>
 		<br>
