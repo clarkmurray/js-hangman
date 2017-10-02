@@ -17,3 +17,10 @@ input {
 #incorrectLetters {
 	display: none;
 }
+
+h1 {
+	background-color: #ABD0CE;
+	padding: 20px;
+	width: 100%;
+	color: #1D2951;
+}

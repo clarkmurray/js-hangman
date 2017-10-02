@@ -9,7 +9,6 @@ var canvas =document.getElementById("gallows");
 var context = canvas.getContext("2d");
 
 
-
 function victory() {
 	var win = document.getElementById('win');
 	var guessDiv = document.getElementById('guessDiv');
@@ -45,6 +44,17 @@ function createPhraseArray() {
 	hidePhrase();
 }
 
+document.getElementById('userPhrase').addEventListener('keypress', function(event) {
+        if (event.keyCode == 13) {
+            document.getElementById('createPhrase').click();
+        }
+ });
+
+document.getElementById('userGuess').addEventListener('keypress', function(event) {
+        if (event.keyCode == 13) {
+            document.getElementById('createGuess').click();
+        }
+ });
 
 function hidePhrase() {
 	for (i=0; i < splitPhrase.length; i++) {
@@ -143,7 +153,9 @@ function isLetter(evt) {
     	alert("Letters only");
         return false;
     }
+    document.getElementById("createGuess").disabled = false;
     return true;
+
 }
 
 function letterOrSpace(evt) {
@@ -153,7 +165,9 @@ function letterOrSpace(evt) {
     	alert("Letters or spaces only");
         return false;
     }
+    document.getElementById("createPhrase").disabled = false;
     return true;
+
 }
 
 function restartGame() {
