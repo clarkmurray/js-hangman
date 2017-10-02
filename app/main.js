@@ -39,7 +39,6 @@ function createPhraseArray() {
 	phrase = phrase.toUpperCase();
 	splitPhrase = phrase.split('');
 	phrase = splitPhrase.join('');
-	console.log(phrase);
 	phraseDiv.style.display = 'none';
 	guessDiv.style.display = 'block';
 	incorrectDiv.style.display = 'block';
@@ -93,6 +92,7 @@ function userGuess() {
 		incorrectLetters.innerHTML += guess + "\u00A0";
 
 		if (guessCounter == 5) {
+			context.beginPath();
 			context.arc(125, 65, 30, 0, 2 * Math.PI);
 			context.stroke();
 		} else if (guessCounter == 4) {
@@ -134,6 +134,7 @@ function userGuess() {
 	document.getElementById("userGuess").value = "";
 
 }
+
 
 function isLetter(evt) {
     evt = (evt) ? evt : window.event;
