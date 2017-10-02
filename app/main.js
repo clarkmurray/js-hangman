@@ -9,6 +9,7 @@ var canvas =document.getElementById("gallows");
 var context = canvas.getContext("2d");
 
 
+
 function victory() {
 	var win = document.getElementById('win');
 	var guessDiv = document.getElementById('guessDiv');
@@ -34,12 +35,14 @@ function createPhraseArray() {
 	phrase = document.getElementById('userPhrase').value;
 	var phraseDiv = document.getElementById('phraseDiv');
 	var guessDiv = document.getElementById('guessDiv');
+	var incorrectDiv = document.getElementById('incorrectLetters');
 	phrase = phrase.toUpperCase();
 	splitPhrase = phrase.split('');
 	phrase = splitPhrase.join('');
 	console.log(phrase);
 	phraseDiv.style.display = 'none';
 	guessDiv.style.display = 'block';
+	incorrectDiv.style.display = 'block';
 	hidePhrase();
 }
 
@@ -88,7 +91,7 @@ function userGuess() {
 	if (!guessTracker) {
 		guessCounter = guessCounter - 1;
 		incorrectLetters.innerHTML += guess + "\u00A0";
-		
+
 		if (guessCounter == 5) {
 			context.arc(125, 65, 30, 0, 2 * Math.PI);
 			context.stroke();
@@ -136,6 +139,7 @@ function isLetter(evt) {
     evt = (evt) ? evt : window.event;
     var charCode = (evt.which) ? evt.which : evt.keyCode;
     if (charCode > 31 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
+    	alert("Letters only");
         return false;
     }
     return true;
@@ -145,6 +149,7 @@ function letterOrSpace(evt) {
     evt = (evt) ? evt : window.event;
     var charCode = (evt.which) ? evt.which : evt.keyCode;
     if (charCode > 32 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
+    	alert("Letters or spaces only");
         return false;
     }
     return true;
@@ -153,5 +158,6 @@ function letterOrSpace(evt) {
 function restartGame() {
 	location.reload();
 }
+
 
 createGallows();
