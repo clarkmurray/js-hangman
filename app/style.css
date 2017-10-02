@@ -1,3 +1,15 @@
+#win {
+	display: none;
+}
+
+#loss {
+	display: none;
+}
+
+#gallows {
+	border: 1px solid black;
+}
+
 #guessDiv {
 	display: none;
 }

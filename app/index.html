@@ -11,6 +11,48 @@
 	<div class="row text-center">
 		<h1>Hangman</h1>
 	</div>
+
+	<div class="row text-center">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-6">
+	  		<div class="panel panel-success" id="win">
+	  			<div class="panel-heading">Victory!</div>
+	    		<div class="panel-body" id="winMessage">Congratulations! You managed to avoid certain death! You
+	    		live to play another game.
+	    		<br>
+	    		<br>
+	    		<button type="button" onclick="restartGame()">Play Again</button>
+	    		</div>
+	  		</div>
+	  	</div>
+	  	<div class="col-xs-3"></div>
+  	</div>
+
+	<div class="row text-center">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-6">
+	  		<div class="panel panel-danger" id="loss">
+	  			<div class="panel-heading">You Lost!</div>
+	    		<div class="panel-body">
+	    			<div id="lossMessage"></div>
+	    			<br>
+	    			<br>
+	    			<button type="button" onclick="restartGame()">Play Again</button>
+	    		</div>
+	  		</div>
+	  	</div>
+	  	<div class="col-xs-3"></div>
+  	</div>
+
+
+	<div class="row text-center">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-6">
+			<canvas id="gallows" height="250px" width="250px">
+			</canvas>
+		</div>
+		<div class="col-xs-3"></div>
+	</div>
 	<div class="row text-center">
 		<div class="col-xs-12">
 			<div class="text-center" id="phrase">
@@ -59,7 +101,7 @@
 	<div class="row text-center">
 		<div class="col-xs-3"></div>
 		<div class="col-xs-6">
-		<input type="text" id="userGuess" maxlength="1" onkeypress="return isAlfa(event)" placeholder="Guess a letter">
+		<input type="text" id="userGuess" maxlength="1" onkeypress="return isLetter(event)" placeholder="Guess a letter">
 		</div>
 		<div class="col-xs-3"></div>
 	</div>
@@ -68,6 +110,11 @@
 		<div class="col-xs-3"></div>
 		<div class="col-xs-6">
 		<button onclick="userGuess()">Submit</button>
+		<br>
+		<br>
+		<br>
+		<br>
+		<button onclick="restartGame()">Restart</button>
 		</div>
 		<div class="col-xs-3"></div>
 	</div>
