@@ -5,6 +5,8 @@ var incorrectLetters = document.getElementById('incorrect');
 var alreadyGuessed = [];
 var phraseCheck = 0;
 var phrase;
+var canvas =document.getElementById("gallows");
+var context = canvas.getContext("2d");
 
 
 function victory() {
@@ -16,20 +18,13 @@ function victory() {
 
 
 function createGallows() {
-	var canvas =document.getElementById("gallows");
-	var context = canvas.getContext("2d");
 	context.beginPath();
 	context.moveTo(96, 230);
 	context.lineTo(188, 230);
 	context.lineTo(188, 20);
 	context.lineTo(125, 20);
 	context.lineTo(125, 35);
-/*	context.arc(125, 65, 30, 0, 2 * Math.PI);
-	context.moveTo(125, 95);
-	context.lineTo(125, 160);
-	context.lineTo(110, 210);
-	context.moveTo(125, 160);
-	context.lineTo(140, 210); */
+	context.moveTo(125,65);
 	context.stroke();
 
 }
@@ -93,6 +88,31 @@ function userGuess() {
 	if (!guessTracker) {
 		guessCounter = guessCounter - 1;
 		incorrectLetters.innerHTML += guess + "\u00A0";
+		
+		if (guessCounter == 5) {
+			context.arc(125, 65, 30, 0, 2 * Math.PI);
+			context.stroke();
+		} else if (guessCounter == 4) {
+			context.moveTo(125, 95);
+			context.lineTo(125, 160);
+			context.stroke();
+		} else if (guessCounter == 3) {
+			context.lineTo(110, 210);
+			context.stroke();
+		} else if (guessCounter == 2) {
+			context.moveTo(125, 160);
+			context.lineTo(140, 210);
+			context.stroke();
+		} else if (guessCounter == 1){
+			context.moveTo(125, 115);
+			context.lineTo(85, 140);
+			context.stroke();
+		} else if (guessCounter == 0) {
+			context.moveTo(125, 115);
+			context.lineTo(165, 140);
+			context.stroke();
+		}
+
 		if (guessCounter == 0) {
 			lossNotification = document.getElementById('loss');
 			lossMessage = document.getElementById('lossMessage');
