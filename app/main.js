@@ -9,14 +9,12 @@ var canvas =document.getElementById("gallows");
 var context = canvas.getContext("2d");
 
 
-function victory() {
-	var win = document.getElementById('win');
-	var guessDiv = document.getElementById('guessDiv');
-	win.style.display = "block";
-	guessDiv.style.display = "none";
-	document.getElementById('winAgain').focus();
-}
 
+document.onreadystatechange = function() {
+  if (document.readyState === "interactive") {
+  	createGallows();
+  };
+};
 
 function createGallows() {
 	context.beginPath();
@@ -29,6 +27,25 @@ function createGallows() {
 	context.stroke();
 
 }
+
+
+function victory() {
+	var win = document.getElementById('win');
+	var guessDiv = document.getElementById('guessDiv');
+	win.style.display = "block";
+	guessDiv.style.display = "none";
+	document.getElementById('winAgain').focus();
+}
+
+
+document.getElementById("showPhrase").addEventListener("click", function(e){
+    var show = document.getElementById("userPhrase");
+    if(show.getAttribute("type")=="password"){
+        show.setAttribute("type","text");
+    } else {
+        show.setAttribute("type","password");
+    }
+});
 
 
 function createPhraseArray() {
@@ -178,6 +195,3 @@ function letterOrSpace(evt) {
 function restartGame() {
 	location.reload();
 }
-
-
-createGallows();

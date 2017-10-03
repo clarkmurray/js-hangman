@@ -2,6 +2,10 @@ input {
 	text-align: center;
 }
 
+input[type="password"] {
+    mask-size: 32px;
+}
+
 #win {
 	display: none;
 }
@@ -23,4 +27,25 @@ h1 {
 	padding: 20px;
 	width: 100%;
 	color: #1D2951;
+}
+
+#userPhrase {
+	padding: 8px;
+	width: 60%;
+	font-size: 16px;
+}
+
+#userGuess {
+	padding: 8px;
+	width: 60%;
+	font-size: 16px;
+}
+
+#showPhrase {
+	color: blue;
+	text-decoration: underline;
+}
+
+#showPhrase:hover {
+	cursor: pointer;
 }
