@@ -16,6 +16,9 @@
 		<div class="col-xs-3"></div>
 	</div>
 
+
+	<!--Win notification panel. Appears when you correctly guess all of the letters or the phrase.-->
+
 	<div class="row text-center">
 		<div class="col-xs-3"></div>
 		<div class="col-xs-6">
@@ -31,6 +34,9 @@
 	  	</div>
 	  	<div class="col-xs-3"></div>
   	</div>
+
+
+  	<!--Loss notification panel. Appears when you are out of guesses or incorrectly guess the phrase.-->
 
 	<div class="row text-center">
 		<div class="col-xs-3"></div>
@@ -48,6 +54,23 @@
 	  	<div class="col-xs-3"></div>
   	</div>
 
+
+  	<!-- Guess phrase warning panel. Appears when user clicks "Guess Phrase" button -->
+
+  	<div class="row text-center">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-6">
+	  		<div class="panel panel-warning" id="warning">
+	  			<div class="panel-heading">Warning</div>
+	    		<div class="panel-body" id="guessWarning">This option is only for the bold! If you guess wrong, it's
+	    		the gallows for you!</div>
+	  		</div>
+	  	</div>
+	  	<div class="col-xs-3"></div>
+  	</div>
+
+
+  	<!--The Gallows. Made with HTML Canvas.-->
 
 	<div class="row text-center">
 		<div class="col-xs-3"></div>
@@ -124,6 +147,42 @@
 		<div class="col-xs-3"></div>
 	</div>
 	</div>
+
+
+	<!--Guess the phrase div. Used to guess the entire phrase instead of a single letter. Can be toggled back and
+		forth with the guessDiv.-->
+
+	<div id="guessPhraseDiv">
+	<div class="row text-center">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-6">
+			<h3>Guess the Phrase</h3>
+		</div>
+		<div class="col-xs-3"></div>
+	</div>
+	<div class="row text-center">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-6">
+		<input type="text" id="userPhraseGuess" onkeypress="return letterOrSpace(event)" placeholder="Letters and spaces only">
+		<span id="noGold"><p>Guess a Letter</p></span>
+		</div>
+		<div class="col-xs-3"></div>
+	</div>
+	<br>
+	<div class="row text-center">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-6">
+		<button onclick="guessthePhrase()" id="guessWholePhrase">Submit</button>
+		<br>
+		<br>
+		<br>
+		<br>
+		<button onclick="restartGame()">Restart</button>
+		</div>
+		<div class="col-xs-3"></div>
+	</div>
+	</div>
+
 
 	<script src="main.js"></script>
 </body>

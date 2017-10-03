@@ -52,8 +52,12 @@ function drawFullHangman() {
 function victory() {
 	var win = document.getElementById('win');
 	var guessDiv = document.getElementById('guessDiv');
+	var guessPhraseDiv = document.getElementById('guessPhraseDiv');
+	var warning = document.getElementById("warning");
+	warning.style.display = "none";
 	win.style.display = "block";
 	guessDiv.style.display = "none";
+	guessPhraseDiv.style.display = "none";
 	document.getElementById('winAgain').focus();
 }
 
@@ -68,8 +72,26 @@ document.getElementById("showPhrase").addEventListener("click", function(e){
 });
 
 document.getElementById("goForGold").addEventListener("click", function(e){
-	var hailMary = prompt("Careful now, you only get one try! Are you confident enough in your guess to risk the gallows?");
+   var guessDiv = document.getElementById('guessDiv');
+   var guessPhraseDiv = document.getElementById('guessPhraseDiv');
+   guessDiv.style.display = "none";
+   guessPhraseDiv.style.display = "block";
+   warning.style.display = "block";
+});
+
+document.getElementById("noGold").addEventListener("click", function(e){
+   var guessDiv = document.getElementById('guessDiv');
+   var guessPhraseDiv = document.getElementById('guessPhraseDiv');
+   guessDiv.style.display = "block";
+   guessPhraseDiv.style.display = "none";
+});
+
+function guessthePhrase() {
+	var warning = document.getElementById("warning");
+	var hailMary = document.getElementById("userPhraseGuess").value;
+	console.log(hailMary);
 	hailMary = hailMary.toUpperCase();
+	console.log(hailMary);
 	if (hailMary == phrase) {
 		phraseWindow.innerHTML = phrase;
 		victory();
@@ -80,7 +102,8 @@ document.getElementById("goForGold").addEventListener("click", function(e){
 		lose();
 		console.log("lose function complete");
 	}
-});
+};
+
 
 function createPhraseArray() {
 	phrase = document.getElementById('userPhrase').value;
@@ -112,6 +135,12 @@ document.getElementById('userGuess').addEventListener('keypress', function(event
         }
  });
 
+document.getElementById('userPhraseGuess').addEventListener('keypress', function(event) {
+        if (event.keyCode == 13) {
+            document.getElementById('guessWholePhrase').click();
+        }
+ });
+
 function hidePhrase() {
 	for (i=0; i < splitPhrase.length; i++) {
 		if (splitPhrase[i] === " ") {
@@ -136,10 +165,14 @@ Array.prototype.contains = function(guess) {
 function lose() {
 	lossNotification = document.getElementById('loss');
 	lossMessage = document.getElementById('lossMessage');
+	var warning = document.getElementById("warning");
+	var guessPhraseDiv = document.getElementById('guessPhraseDiv');
+	warning.style.display = "none";
 	lossNotification.style.display = "block";
 	lossMessage.innerHTML = "You're out of guesses! The correct answer was " + phrase;
 	var guessDiv = document.getElementById('guessDiv');
 	guessDiv.style.display = "none";
+	guessPhraseDiv.style.display = "none";
 	document.getElementById('loseAgain').focus();
 }
 

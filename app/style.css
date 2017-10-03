@@ -1,5 +1,8 @@
 input {
 	text-align: center;
+	padding: 8px;
+	width: 60%;
+	font-size: 16px;
 }
 
 input[type="password"] {
@@ -14,7 +17,15 @@ input[type="password"] {
 	display: none;
 }
 
+#warning {
+	display: none;
+}
+
 #guessDiv {
+	display: none;
+}
+
+#guessPhraseDiv {
 	display: none;
 }
 
@@ -27,18 +38,6 @@ h1 {
 	padding: 20px;
 	width: 100%;
 	color: #1D2951;
-}
-
-#userPhrase {
-	padding: 8px;
-	width: 60%;
-	font-size: 16px;
-}
-
-#userGuess {
-	padding: 8px;
-	width: 60%;
-	font-size: 16px;
 }
 
 #showPhrase {
@@ -61,6 +60,15 @@ h1 {
 }
 
 #goForGold:hover {
+	cursor: pointer;
+}
+
+#noGold {
+	color: blue;
+	text-decoration: underline;
+}
+
+#noGold:hover {
 	cursor: pointer;
 }
 
