@@ -83,7 +83,7 @@ function hidePhrase() {
 		if (splitPhrase[i] === " ") {
 			hiddenPhrase.push("\u00A0");
 		} else {
-			hiddenPhrase.push("?");
+			hiddenPhrase.push('\u005F');
 		}
 	}
 
@@ -113,7 +113,7 @@ function userGuess() {
 		if (guess == splitPhrase[i]) {
 			hiddenPhrase[i] = guess;
 			guessTracker = true;
-			if (!((hiddenPhrase.join()).includes("?"))) {
+			if (!((hiddenPhrase.join()).includes('\u005F'))) {
 				victory();
 			}
 		}

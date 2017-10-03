@@ -49,3 +49,8 @@ h1 {
 #showPhrase:hover {
 	cursor: pointer;
 }
+
+#phrase {
+	letter-spacing: 10px;
+	font-size: x-large;
+}
