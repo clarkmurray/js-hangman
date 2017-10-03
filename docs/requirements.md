@@ -1,10 +1,10 @@
 # Task List
 
-[ ] AJAX
 [ ] Guess phrase function/button
+[ ] AJAX
+[ ] Styling
 [ ] Line breaks in phrase (don't break in the middle of a word)
 [ ] Increase size of password masking characters
-[ ] Styling
 
 
 ## Stretch Goals

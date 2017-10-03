@@ -5,7 +5,7 @@ var incorrectLetters = document.getElementById('incorrect');
 var alreadyGuessed = [""];
 var phraseCheck = 0;
 var phrase;
-var canvas =document.getElementById("gallows");
+var canvas = document.getElementById("gallows");
 var context = canvas.getContext("2d");
 
 
@@ -15,6 +15,7 @@ document.onreadystatechange = function() {
   	createGallows();
   };
 };
+
 
 function createGallows() {
 	context.beginPath();
@@ -28,6 +29,25 @@ function createGallows() {
 
 }
 
+function drawFullHangman() {
+	context.beginPath();
+	context.arc(125, 65, 30, 0, 2 * Math.PI);
+	context.stroke();
+	context.moveTo(125, 95);
+	context.lineTo(125, 160);
+	context.stroke();
+	context.lineTo(110, 210);
+	context.stroke();
+	context.moveTo(125, 160);
+	context.lineTo(140, 210);
+	context.stroke();
+	context.moveTo(125, 115);
+	context.lineTo(85, 140);
+	context.stroke();
+	context.moveTo(125, 115);
+	context.lineTo(165, 140);
+	context.stroke();
+}
 
 function victory() {
 	var win = document.getElementById('win');
@@ -47,6 +67,20 @@ document.getElementById("showPhrase").addEventListener("click", function(e){
     }
 });
 
+document.getElementById("goForGold").addEventListener("click", function(e){
+	var hailMary = prompt("Careful now, you only get one try! Are you confident enough in your guess to risk the gallows?");
+	hailMary = hailMary.toUpperCase();
+	if (hailMary == phrase) {
+		phraseWindow.innerHTML = phrase;
+		victory();
+	}
+	else {
+		drawFullHangman();
+		console.log("Moving on to lose function");
+		lose();
+		console.log("lose function complete");
+	}
+});
 
 function createPhraseArray() {
 	phrase = document.getElementById('userPhrase').value;
@@ -99,6 +133,16 @@ Array.prototype.contains = function(guess) {
    return false;
 }
 
+function lose() {
+	lossNotification = document.getElementById('loss');
+	lossMessage = document.getElementById('lossMessage');
+	lossNotification.style.display = "block";
+	lossMessage.innerHTML = "You're out of guesses! The correct answer was " + phrase;
+	var guessDiv = document.getElementById('guessDiv');
+	guessDiv.style.display = "none";
+	document.getElementById('loseAgain').focus();
+}
+
 
 function userGuess() {
 	var guess = document.getElementById("userGuess").value;
@@ -149,14 +193,7 @@ function userGuess() {
 		}
 
 		if (guessCounter == 0) {
-			lossNotification = document.getElementById('loss');
-			lossMessage = document.getElementById('lossMessage');
-			lossNotification.style.display = "block";
-			lossMessage.innerHTML = "You're out of guesses! The correct answer was " + phrase;
-			var guessDiv = document.getElementById('guessDiv');
-			guessDiv.style.display = "none";
-			document.getElementById('loseAgain').focus();
-
+			lose();
 		}
 
 	}

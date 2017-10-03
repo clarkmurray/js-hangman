@@ -54,3 +54,14 @@ h1 {
 	letter-spacing: 10px;
 	font-size: x-large;
 }
+
+#goForGold {
+	color: blue;
+	text-decoration: underline;
+}
+
+#goForGold:hover {
+	cursor: pointer;
+}
+
+
