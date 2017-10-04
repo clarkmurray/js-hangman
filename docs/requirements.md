@@ -1,11 +1,9 @@
 # Task List
 
-[ ] Paste event listeners into On Ready State
+[ ] When you lose, letters you failed to guess appear in red
 [ ] Styling
 [ ] Line breaks in phrase (don't break in the middle of a word)
 [ ] Increase size of password masking characters
-[ ] Phrase turns green when you win
-[ ] When you lose, letters you failed to guess appear in red
 
 
 ## Stretch Goals

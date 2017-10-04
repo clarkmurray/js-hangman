@@ -12,6 +12,51 @@ var context = canvas.getContext("2d");
 
 document.onreadystatechange = function() {
   if (document.readyState === "interactive") {
+
+  	document.getElementById("showPhrase").addEventListener("click", function(e){
+    	var show = document.getElementById("userPhrase");
+    	if(show.getAttribute("type")=="password"){
+        	show.setAttribute("type","text");
+    	} else {
+        	show.setAttribute("type","password");
+   		}
+	});
+
+	document.getElementById("goForGold").addEventListener("click", function(e){
+	   var guessDiv = document.getElementById('guessDiv');
+	   var guessPhraseDiv = document.getElementById('guessPhraseDiv');
+	   guessDiv.style.display = "none";
+	   guessPhraseDiv.style.display = "block";
+	   warning.style.display = "block";
+	});
+
+	document.getElementById("noGold").addEventListener("click", function(e){
+	   var guessDiv = document.getElementById('guessDiv');
+	   var guessPhraseDiv = document.getElementById('guessPhraseDiv');
+	   var warning = document.getElementById("warning");
+	   warning.style.display = "none";
+	   guessDiv.style.display = "block";
+	   guessPhraseDiv.style.display = "none";
+	});
+
+	document.getElementById('userPhrase').addEventListener('keypress', function(event) {
+	    if (event.keyCode == 13) {
+	        document.getElementById('createPhrase').click();
+	    }
+	 });
+
+	document.getElementById('userGuess').addEventListener('keypress', function(event) {
+	    if (event.keyCode == 13) {
+	        document.getElementById('createGuess').click();
+	     }
+	 });
+
+	document.getElementById('userPhraseGuess').addEventListener('keypress', function(event) {
+        if (event.keyCode == 13) {
+            document.getElementById('guessWholePhrase').click();
+        }
+ });
+
   	createGallows();
   };
 };
@@ -54,37 +99,15 @@ function victory() {
 	var guessDiv = document.getElementById('guessDiv');
 	var guessPhraseDiv = document.getElementById('guessPhraseDiv');
 	var warning = document.getElementById("warning");
+	var phrase = document.getElementById('phrase');
 	warning.style.display = "none";
 	win.style.display = "block";
 	guessDiv.style.display = "none";
 	guessPhraseDiv.style.display = "none";
+	phrase.style.color = "green";
 	document.getElementById('winAgain').focus();
 }
 
-
-document.getElementById("showPhrase").addEventListener("click", function(e){
-    var show = document.getElementById("userPhrase");
-    if(show.getAttribute("type")=="password"){
-        show.setAttribute("type","text");
-    } else {
-        show.setAttribute("type","password");
-    }
-});
-
-document.getElementById("goForGold").addEventListener("click", function(e){
-   var guessDiv = document.getElementById('guessDiv');
-   var guessPhraseDiv = document.getElementById('guessPhraseDiv');
-   guessDiv.style.display = "none";
-   guessPhraseDiv.style.display = "block";
-   warning.style.display = "block";
-});
-
-document.getElementById("noGold").addEventListener("click", function(e){
-   var guessDiv = document.getElementById('guessDiv');
-   var guessPhraseDiv = document.getElementById('guessPhraseDiv');
-   guessDiv.style.display = "block";
-   guessPhraseDiv.style.display = "none";
-});
 
 function guessthePhrase() {
 	var warning = document.getElementById("warning");
@@ -122,24 +145,6 @@ function createPhraseArray() {
 	hidePhrase();
 }
 
-
-document.getElementById('userPhrase').addEventListener('keypress', function(event) {
-        if (event.keyCode == 13) {
-            document.getElementById('createPhrase').click();
-        }
- });
-
-document.getElementById('userGuess').addEventListener('keypress', function(event) {
-        if (event.keyCode == 13) {
-            document.getElementById('createGuess').click();
-        }
- });
-
-document.getElementById('userPhraseGuess').addEventListener('keypress', function(event) {
-        if (event.keyCode == 13) {
-            document.getElementById('guessWholePhrase').click();
-        }
- });
 
 function hidePhrase() {
 	for (i=0; i < splitPhrase.length; i++) {
