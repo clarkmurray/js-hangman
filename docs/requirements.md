@@ -11,5 +11,4 @@
 [ ] Better input error notifications--no alerts
 [ ] Better "restartGame" function--doesn't require refreshing browser
 [ ] Connect to an API to play against the computer
-[ ] Make code pretty
 [ ] Click letters instead of typing
