@@ -1,8 +1,9 @@
 # Task List
 
-[ ] Equal height columns
+[ ] Equal height columns (set to display to flex inside of block)
 [ ] Vertical align phrase in the box
 [ ] Put "Guess Letter" div above the galows
+[ ] Style
 [ ] New input phrase screen
 [ ] When you lose, letters you failed to guess appear in red
 [ ] Line breaks in phrase (don't break in the middle of a word)

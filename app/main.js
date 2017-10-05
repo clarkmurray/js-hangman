@@ -153,7 +153,7 @@ function createPhraseArray() {
 	phrase = splitPhrase.join('');
 	phraseDiv.style.display = 'none';
 	guessDiv.style.display = 'block';
-	incorrectDiv.style.display = 'block';
+	incorrectDiv.style.display = 'flex';
 	gallowsDiv.style.display = 'flex';
 	hidePhrase();
 }

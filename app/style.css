@@ -55,11 +55,15 @@ input[type="password"] {
 	display: none;
 }
 
-h1 {
+.hangmanName {
 	background-color: #ABD0CE;
+}
+
+h1 {
 	padding: 20px;
-	width: 100%;
+	margin: 0;
 	color: #1D2951;
+	text-align: center;
 }
 
 #showPhrase {
