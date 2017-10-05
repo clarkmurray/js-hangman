@@ -304,7 +304,7 @@ function randomWordComplete(data) {
     var guessPhraseDiv = document.getElementById('guessPhraseDiv');
     var gallowsDiv = document.getElementById('gallowsDiv');
     startScreen.style.display = "none";
-    guessPhraseDiv.style.display = "block";
+    guessPhraseDiv.style.display = "none";
     gallowsDiv.style.display = "block";
     createPhraseArray();
 }
