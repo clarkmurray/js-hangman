@@ -3,6 +3,7 @@
 [ ] Equal height columns (set to display to flex inside of block)
 [ ] Vertical align phrase in the box
 [ ] Put "Guess Letter" div above the galows
+[ ] Fix "Input a phrase" div
 [ ] Toggle from "Guess Phrase" to "Guess Letter" displays/"Guess Phrase" Div functionality
 [ ] Style
 [ ] New input phrase screen
