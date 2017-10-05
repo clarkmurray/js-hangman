@@ -75,14 +75,29 @@
 
   	<!--The Gallows. Made with HTML Canvas.-->
 
-	<div class="row text-center" id="gallowsDiv">
-		<div class="col-xs-3"></div>
-		<div class="col-xs-6">
+	<div class="row is-flex" id="gallowsDiv">
+		<div class="col-xs-2 showBord"></div>
+		<div class="col-xs-4 showBord">
+			<div class="text-center" id="phrase"></div>
+		</div>
+		<div class="col-xs-4 showBord">
 			<canvas id="gallows" height="250px" width="250px">
 			</canvas>
 		</div>
-		<div class="col-xs-3"></div>
+		<div class="col-xs-2 showBord"></div>
 	</div>
+
+	<div class="row is-flex text-center" id="incorrectLetters">
+			<div class="col-xs-2 showBord"></div>
+			<div class="col-xs-4 showBord">
+				<span id="goForGold">Guess the Phrase</span>
+			</div>
+			<div class="col-xs-4 showBord">
+				<span id="incorrect" class="showBord"></span>
+			</div>
+			<div class="col-xs-2"></div>
+	</div>
+
 
 	<div class="row text-center" id="startScreen">
 		<div class="col-xs-2"></div>
@@ -95,21 +110,6 @@
 	</div>
 
 
-	<!--Phrase Div-->
-	<div class="row text-center">
-		<div class="col-xs-12">
-			<div class="text-center" id="phrase">
-			</div>
-	</div>
-
-
-	<!--Incorrect Letters-->
-	<div class="row text-center" id="incorrectLetters">
-			<div class=" col-xs-12">
-				<h4>Incorrect Letters</h4>
-				<h6 id="incorrect"></h6>
-			</div>
-	</div>
 	<div id="phraseDiv">
 	<div class="row text-center">
 		<div class="col-xs-3"></div>
@@ -140,31 +140,11 @@
 	<div class="row text-center">
 		<div class="col-xs-3"></div>
 		<div class="col-xs-6">
-			<h3>Input Guess</h3>
-		</div>
-		<div class="col-xs-3"></div>
-	</div>
-	<div class="row text-center">
-		<div class="col-xs-3"></div>
-		<div class="col-xs-6">
 		<input type="text" id="userGuess" maxlength="1" onkeypress="return isLetter(event)" placeholder="Guess a letter">
-		<span id="goForGold"><p>Guess the Phrase</p></span>
-		</div>
-		<div class="col-xs-3"></div>
-	</div>
-	<br>
-	<div class="row text-center">
-		<div class="col-xs-3"></div>
-		<div class="col-xs-6">
 		<button onclick="userGuess()" id="createGuess">Submit</button>
-		<br>
-		<br>
-		<br>
-		<br>
 		<button onclick="restartGame()">Restart</button>
 		</div>
 		<div class="col-xs-3"></div>
-	</div>
 	</div>
 
 
