@@ -147,14 +147,14 @@ function createPhraseArray() {
 	var phraseDiv = document.getElementById('phraseDiv');
 	var guessDiv = document.getElementById('guessDiv');
 	var incorrectDiv = document.getElementById('incorrectLetters');
-	var gallows = document.getElementById('gallowsDiv');
+	var gallowsDiv = document.getElementById('gameBoard');
 	phrase = phrase.toUpperCase();
 	splitPhrase = phrase.split('');
 	phrase = splitPhrase.join('');
 	phraseDiv.style.display = 'none';
 	guessDiv.style.display = 'block';
 	incorrectDiv.style.display = 'block';
-	gallowsDiv.style.display = 'block';
+	gallowsDiv.style.display = 'flex';
 	hidePhrase();
 }
 
@@ -302,10 +302,10 @@ function randomWordComplete(data) {
     console.log(phrase);
     var startScreen = document.getElementById('startScreen');
     var guessPhraseDiv = document.getElementById('guessPhraseDiv');
-    var gallowsDiv = document.getElementById('gallowsDiv');
+    var gallowsDiv = document.getElementById('gameBoard');
     startScreen.style.display = "none";
     guessPhraseDiv.style.display = "none";
-    gallowsDiv.style.display = "block";
+    gallowsDiv.style.display = "flex";
     createPhraseArray();
 }
 

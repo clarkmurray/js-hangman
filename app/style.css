@@ -9,7 +9,7 @@ input[type="password"] {
     mask-size: 32px;
 }
 
-#gallowsDiv {
+#gameBoard {
 	display: none;
 }
 
