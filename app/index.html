@@ -75,13 +75,23 @@
 
   	<!--The Gallows. Made with HTML Canvas.-->
 
-	<div class="row text-center">
+	<div class="row text-center" id="gallowsDiv">
 		<div class="col-xs-3"></div>
 		<div class="col-xs-6">
 			<canvas id="gallows" height="250px" width="250px">
 			</canvas>
 		</div>
 		<div class="col-xs-3"></div>
+	</div>
+
+	<div class="row text-center" id="startScreen">
+		<div class="col-xs-2"></div>
+		<div class="col-xs-8">
+			<button type="button" id="singleplayer" onclick="randomWord()">Play Alone</button>
+			<p>--or--</p>
+			<button type="button" id="multiplayer" onclick="multiplayerStart()">Play With a Friend</button>
+		</div>
+		<div class="col-xs-2"></div>
 	</div>
 
 
@@ -120,7 +130,7 @@
 	<div class="row text-center">
 		<div class="col-xs-3"></div>
 		<div class="col-xs-6">
-		<button type="button" onclick="createPhraseArray()" id="createPhrase">Submit</button>
+		<button type="button" onclick="generatePhrase()" id="createPhrase">Submit</button>
 		</div>
 		<div class="col-xs-3"></div>
 	</div>

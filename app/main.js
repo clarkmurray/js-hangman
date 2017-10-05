@@ -62,6 +62,13 @@ document.onreadystatechange = function() {
 };
 
 
+function multiplayerStart() {
+	var startScreen = document.getElementById('startScreen');
+	var phraseDiv = document.getElementById('phraseDiv');
+	startScreen.style.display = "none";
+	phraseDiv.style.display = "block";
+}
+
 function createGallows() {
 	context.beginPath();
 	context.moveTo(96, 230);
@@ -128,20 +135,26 @@ function guessthePhrase() {
 };
 
 
-function createPhraseArray() {
+function generatePhrase() {
 	phrase = document.getElementById('userPhrase').value;
 	if (!(/[a-z]/i.test(phrase))) {
 		return false;
 	}
+	createPhraseArray();
+}
+
+function createPhraseArray() {
 	var phraseDiv = document.getElementById('phraseDiv');
 	var guessDiv = document.getElementById('guessDiv');
 	var incorrectDiv = document.getElementById('incorrectLetters');
+	var gallows = document.getElementById('gallowsDiv');
 	phrase = phrase.toUpperCase();
 	splitPhrase = phrase.split('');
 	phrase = splitPhrase.join('');
 	phraseDiv.style.display = 'none';
 	guessDiv.style.display = 'block';
 	incorrectDiv.style.display = 'block';
+	gallowsDiv.style.display = 'block';
 	hidePhrase();
 }
 
@@ -269,4 +282,34 @@ function letterOrSpace(evt) {
 
 function restartGame() {
 	location.reload();
+}
+
+function randomWord() {
+    var requestStr = "http://setgetgo.com/randomword/get.php";
+
+    $.ajax({
+        type: "GET",
+        url: requestStr,
+        dataType: "jsonp",
+       // success : randomWordComplete,
+        error : apiFail,
+        jsonpCallback: 'randomWordComplete'
+    });
+}
+
+function randomWordComplete(data) {
+    phrase = data.Word;
+    console.log(phrase);
+    var startScreen = document.getElementById('startScreen');
+    var guessPhraseDiv = document.getElementById('guessPhraseDiv');
+    var gallowsDiv = document.getElementById('gallowsDiv');
+    startScreen.style.display = "none";
+    guessPhraseDiv.style.display = "block";
+    gallowsDiv.style.display = "block";
+    createPhraseArray();
+}
+
+function apiFail( errors ) {
+	console.log( 'apiFail' );
+	console.log( 'apiFail ', errors );
 }

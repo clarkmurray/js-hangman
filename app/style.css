@@ -9,6 +9,20 @@ input[type="password"] {
     mask-size: 32px;
 }
 
+#gallowsDiv {
+	display: none;
+}
+
+#singleplayer, #multiplayer {
+	display: block;
+	width: 75%;
+	height: 50px;
+	margin: 50px auto;
+	background-color: blue;
+	color: white;
+	border: none;
+}
+
 #win {
 	display: none;
 }
@@ -18,6 +32,10 @@ input[type="password"] {
 }
 
 #warning {
+	display: none;
+}
+
+#phraseDiv {
 	display: none;
 }
 
