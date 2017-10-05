@@ -82,6 +82,12 @@ h1 {
 #phrase {
 	letter-spacing: 10px;
 	font-size: x-large;
+	width: 100%;
+	margin: 0;
+	height: 100%;
+	display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #goForGold {
