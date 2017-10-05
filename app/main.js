@@ -66,7 +66,7 @@ function multiplayerStart() {
 	var startScreen = document.getElementById('startScreen');
 	var phraseDiv = document.getElementById('phraseDiv');
 	startScreen.style.display = "none";
-	phraseDiv.style.display = "block";
+	phraseDiv.style.display = "flex";
 }
 
 function createGallows() {
@@ -110,7 +110,7 @@ function victory() {
 	warning.style.display = "none";
 	win.style.display = "block";
 	guessDiv.style.display = "none";
-	guessPhraseDiv.style.display = "none";
+	guessPhraseDiv.style.display = "flex";
 	phrase.style.color = "green";
 	document.getElementById('winAgain').focus();
 }
@@ -152,7 +152,7 @@ function createPhraseArray() {
 	splitPhrase = phrase.split('');
 	phrase = splitPhrase.join('');
 	phraseDiv.style.display = 'none';
-	guessDiv.style.display = 'block';
+	guessDiv.style.display = 'flex';
 	incorrectDiv.style.display = 'flex';
 	gallowsDiv.style.display = 'flex';
 	hidePhrase();

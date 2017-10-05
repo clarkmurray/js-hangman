@@ -51,6 +51,10 @@ input[type="password"] {
 	display: none;
 }
 
+#userGuess {
+	margin: 0 auto;
+}
+
 #incorrectLetters {
 	display: none;
 }

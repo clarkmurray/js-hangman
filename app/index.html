@@ -22,7 +22,7 @@
 
 	<!--Win notification panel. Appears when you correctly guess all of the letters or the phrase.-->
 
-	<div class="row text-center">
+	<!-- <div class="row text-center">
 		<div class="col-xs-3"></div>
 		<div class="col-xs-6">
 	  		<div class="panel panel-success" id="win">
@@ -36,12 +36,12 @@
 	  		</div>
 	  	</div>
 	  	<div class="col-xs-3"></div>
-  	</div>
+  	</div> -->
 
 
   	<!--Loss notification panel. Appears when you are out of guesses or incorrectly guess the phrase.-->
 
-	<div class="row text-center">
+	<!-- <div class="row text-center">
 		<div class="col-xs-3"></div>
 		<div class="col-xs-6">
 	  		<div class="panel panel-danger" id="loss">
@@ -55,12 +55,12 @@
 	  		</div>
 	  	</div>
 	  	<div class="col-xs-3"></div>
-  	</div>
+  	</div> -->
 
 
   	<!-- Guess phrase warning panel. Appears when user clicks "Guess Phrase" button -->
 
-  	<div class="row text-center">
+  	<!-- <div class="row text-center">
 		<div class="col-xs-3"></div>
 		<div class="col-xs-6">
 	  		<div class="panel panel-warning" id="warning">
@@ -70,11 +70,20 @@
 	  		</div>
 	  	</div>
 	  	<div class="col-xs-3"></div>
-  	</div>
+  	</div> -->
 
 
   	<!--The Gallows. Made with HTML Canvas.-->
 
+  	<div class="row is-flex" id="guessDiv">
+		<div class="col-xs-2 showBord"></div>
+		<div class="col-xs-8 showBord">
+		<input type="text" id="userGuess" maxlength="1" onkeypress="return isLetter(event)" placeholder="Guess a letter">
+		<button onclick="userGuess()" id="createGuess">Submit</button>
+		<button onclick="restartGame()">Restart</button>
+		</div>
+		<div class="col-xs-2 showBord"></div>
+	</div>
 
 	<div class="row text-center is-flex" id="gameBoard">
 		<div class="col-xs-2 showBord"></div>
@@ -137,18 +146,7 @@
 	</div>
 	</div>
 
-	<div id="guessDiv">
-	<div class="row text-center">
-		<div class="col-xs-3"></div>
-		<div class="col-xs-6">
-		<input type="text" id="userGuess" maxlength="1" onkeypress="return isLetter(event)" placeholder="Guess a letter">
-		<button onclick="userGuess()" id="createGuess">Submit</button>
-		<button onclick="restartGame()">Restart</button>
-		</div>
-		<div class="col-xs-3"></div>
-	</div>
-
-
+	
 	<!--Guess the phrase div. Used to guess the entire phrase instead of a single letter. Can be toggled back and
 		forth with the guessDiv.-->
 
