@@ -204,7 +204,6 @@ function userGuess() {
 
 	hiddenPhrase = hiddenPhrase.join('');
 	phraseWindow.innerHTML = hiddenPhrase;
-	console.log(guessCounter);
 	alreadyGuessed.push(guess);
 	document.getElementById("userGuess").value = "";
 
@@ -261,7 +260,6 @@ function randomWord() {
 
 function randomWordComplete(data) {
     phrase = data.Word;
-    console.log(phrase);
     var startScreen = document.getElementById('startScreen');
     var gallowsDiv = document.getElementById('gameBoard');
     startScreen.style.display = "none";
@@ -272,4 +270,4 @@ function randomWordComplete(data) {
 function apiFail( errors ) {
 	console.log( 'apiFail' );
 	console.log( 'apiFail ', errors );
-}
+;}
