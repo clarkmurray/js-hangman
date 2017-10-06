@@ -29,9 +29,20 @@ i {
 }
 
 
+#createGuess, #restartInGuess {
+	width: 60px;
+	height: 45px;
+	background-color: blue;
+	color: white;
+	border: none;
+}
+
 #createGuess {
-	width: 70px;
-	height: 40px;
+	margin-left: 10px;
+}
+
+#restartInGuess {
+	margin-left: 20px;
 }
 
 #win {
@@ -61,6 +72,8 @@ i {
 }
 
 #userGuess {
+	height: 45px;
+	width: 25%;
 	margin: 0 auto;
 }
 

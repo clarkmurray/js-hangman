@@ -34,12 +34,6 @@ document.onreadystatechange = function() {
 	     }
 	 });
 
-	document.getElementById('userPhraseGuess').addEventListener('keypress', function(event) {
-        if (event.keyCode == 13) {
-            document.getElementById('guessWholePhrase').click();
-        }
- });
-
   	createGallows();
   };
 };
@@ -87,12 +81,10 @@ function drawFullHangman() {
 function victory() {
 	var win = document.getElementById('win');
 	var guessDiv = document.getElementById('guessDiv');
-	var guessPhraseDiv = document.getElementById('guessPhraseDiv');
 	var warning = document.getElementById("warning");
 	var phrase = document.getElementById('phrase');
 	win.style.display = "block";
 	guessDiv.style.display = "none";
-	guessPhraseDiv.style.display = "none";
 	phrase.style.color = "green";
 	document.getElementById('winAgain').focus();
 }
@@ -101,12 +93,10 @@ function lose() {
 	lossNotification = document.getElementById('loss');
 	lossMessage = document.getElementById('lossMessage');
 	var warning = document.getElementById("warning");
-	var guessPhraseDiv = document.getElementById('guessPhraseDiv');
 	lossNotification.style.display = "block";
 	lossMessage.innerHTML = "You're out of guesses! The correct answer was " + phrase;
 	var guessDiv = document.getElementById('guessDiv');
 	guessDiv.style.display = "none";
-	guessPhraseDiv.style.display = "none";
 	document.getElementById('loseAgain').focus();
 }
 
@@ -254,7 +244,6 @@ function restartGame() {
 }
 
 
-
 /*------Fetches Random Word from API------*/
 
 function randomWord() {
@@ -274,10 +263,8 @@ function randomWordComplete(data) {
     phrase = data.Word;
     console.log(phrase);
     var startScreen = document.getElementById('startScreen');
-    var guessPhraseDiv = document.getElementById('guessPhraseDiv');
     var gallowsDiv = document.getElementById('gameBoard');
     startScreen.style.display = "none";
-    guessPhraseDiv.style.display = "none";
     gallowsDiv.style.display = "flex";
     createPhraseArray();
 }

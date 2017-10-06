@@ -1,8 +1,6 @@
 # Task List
 
 
-[ ] Style "Guess Letter" div
-[ ] Background
 [ ] Clean code
 [ ] Deploy
 
