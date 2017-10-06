@@ -5,12 +5,15 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="style.css">
 </head>
 
 <body class="container">
 
+
 	<!--Heading-->
+
 	<div class="row">
 		<div class="col-xs-2"></div>
 		<div class="col-xs-8 hangmanName showBord">
@@ -20,9 +23,23 @@
 	</div>
 
 
+
+	<!--Start Menu-->
+
+	<div class="row text-center" id="startScreen">
+		<div class="col-xs-2"></div>
+		<div class="col-xs-8">
+			<button type="button" id="singleplayer" onclick="randomWord()">Play Alone</button>
+			<p>--or--</p>
+			<button type="button" id="multiplayer" onclick="multiplayerStart()">Play With a Friend</button>
+		</div>
+		<div class="col-xs-2"></div>
+	</div>
+
+
 	<!--Win notification panel. Appears when you correctly guess all of the letters or the phrase.-->
 
-	<!-- <div class="row text-center">
+	<div class="row text-center">
 		<div class="col-xs-3"></div>
 		<div class="col-xs-6">
 	  		<div class="panel panel-success" id="win">
@@ -36,12 +53,12 @@
 	  		</div>
 	  	</div>
 	  	<div class="col-xs-3"></div>
-  	</div> -->
+  	</div>
 
 
   	<!--Loss notification panel. Appears when you are out of guesses or incorrectly guess the phrase.-->
 
-	<!-- <div class="row text-center">
+	<div class="row text-center">
 		<div class="col-xs-3"></div>
 		<div class="col-xs-6">
 	  		<div class="panel panel-danger" id="loss">
@@ -55,26 +72,13 @@
 	  		</div>
 	  	</div>
 	  	<div class="col-xs-3"></div>
-  	</div> -->
+  	</div>
 
 
-  	<!-- Guess phrase warning panel. Appears when user clicks "Guess Phrase" button -->
 
-  	<!-- <div class="row text-center">
-		<div class="col-xs-3"></div>
-		<div class="col-xs-6">
-	  		<div class="panel panel-warning" id="warning">
-	  			<div class="panel-heading">Warning</div>
-	    		<div class="panel-body" id="guessWarning">This option is only for the bold! If you guess wrong, it's
-	    		the gallows for you!</div>
-	  		</div>
-	  	</div>
-	  	<div class="col-xs-3"></div>
-  	</div> -->
-
-
-  	<!--The Gallows. Made with HTML Canvas.-->
-
+  	<!--Guess the letter div. Used to guess a single letter instead of the entire phrase. Can be toggled back and 
+  		forth with the guessPhraseDiv-->
+  	
   	<div class="row is-flex" id="guessDiv">
 		<div class="col-xs-2 showBord"></div>
 		<div class="col-xs-8 showBord">
@@ -84,6 +88,28 @@
 		</div>
 		<div class="col-xs-2 showBord"></div>
 	</div>
+
+
+
+
+	<!--Guess the phrase div. Used to guess the entire phrase instead of a single letter. Can be toggled back and
+		forth with the guessDiv.-->
+
+	<div id="guessPhraseDiv">
+	<div class="row text-center">
+		<div class="col-xs-2"></div>
+		<div class="col-xs-8">
+			<input type="text" id="userPhraseGuess" onkeypress="return letterOrSpace(event)" placeholder="Guess the Phrase">
+			<button onclick="guessthePhrase()" id="guessWholePhrase">Submit</button>
+			<button onclick="restartGame()">Restart</button>
+		</div>
+		<div class="col-xs-2"></div>
+	</div>
+	</div>
+
+
+
+	<!--The Gallows. Made with HTML Canvas.-->
 
 	<div class="row text-center is-flex" id="gameBoard">
 		<div class="col-xs-2 showBord"></div>
@@ -97,10 +123,9 @@
 		<div class="col-xs-2 showBord"></div>
 	</div>
 	
-	<div class="row is-flex text-center" id="incorrectLetters">
+	<div class="row is-flex text-center" id="letterIncorrectLetters">
 			<div class="col-xs-2 showBord"></div>
 			<div class="col-xs-4 showBord">
-				<span id="goForGold">Guess the Phrase</span>
 			</div>
 			<div class="col-xs-4 showBord">
 				<span id="incorrect" class="showBord"></span>
@@ -109,80 +134,19 @@
 	</div>
 
 
-
-	<div class="row text-center" id="startScreen">
-		<div class="col-xs-2"></div>
-		<div class="col-xs-8">
-			<button type="button" id="singleplayer" onclick="randomWord()">Play Alone</button>
-			<p>--or--</p>
-			<button type="button" id="multiplayer" onclick="multiplayerStart()">Play With a Friend</button>
-		</div>
-		<div class="col-xs-2"></div>
-	</div>
-
-
 	<div id="phraseDiv">
 	<div class="row text-center">
-		<div class="col-xs-3"></div>
-		<div class="col-xs-6">
-			<h3>Input a Word or Phrase</h3>
+		<div class="col-xs-2 showBord"></div>
+		<div class="col-xs-8 showBord">
+			<input type="password" id="userPhrase" onkeypress="return letterOrSpace(event)" placeholder="Insert a Phrase">
+			<span id="showPhrase"><i class="fa fa-eye fa-lg" aria-hidden="true"></i></span>
+			<button type="button" onclick="generatePhrase()" id="createPhrase">Submit</button>
 		</div>
-		<div class="col-xs-3"></div>
+		<div class="col-xs-2 showBord"></div>
 	</div>
-	<div class="row text-center">
-		<div class="col-xs-3"></div>
-		<div class="col-xs-6">
-			<input type="password" id="userPhrase" onkeypress="return letterOrSpace(event)" placeholder="Letters and spaces only">
-			<span id="showPhrase"><p>Show Phrase</p></span>
-		</div>
-		<div class="col-xs-3"></div>
-	</div>
-	<br>
-	<div class="row text-center">
-		<div class="col-xs-3"></div>
-		<div class="col-xs-6">
-		<button type="button" onclick="generatePhrase()" id="createPhrase">Submit</button>
-		</div>
-		<div class="col-xs-3"></div>
-	</div>
-	</div>
+
 
 	
-	<!--Guess the phrase div. Used to guess the entire phrase instead of a single letter. Can be toggled back and
-		forth with the guessDiv.-->
-
-	<div id="guessPhraseDiv">
-	<div class="row text-center">
-		<div class="col-xs-3"></div>
-		<div class="col-xs-6">
-			<h3>Guess the Phrase</h3>
-		</div>
-		<div class="col-xs-3"></div>
-	</div>
-	<div class="row text-center">
-		<div class="col-xs-3"></div>
-		<div class="col-xs-6">
-		<input type="text" id="userPhraseGuess" onkeypress="return letterOrSpace(event)" placeholder="Letters and spaces only">
-		<span id="noGold"><p>Guess a Letter</p></span>
-		</div>
-		<div class="col-xs-3"></div>
-	</div>
-	<br>
-	<div class="row text-center">
-		<div class="col-xs-3"></div>
-		<div class="col-xs-6">
-		<button onclick="guessthePhrase()" id="guessWholePhrase">Submit</button>
-		<br>
-		<br>
-		<br>
-		<br>
-		<button onclick="restartGame()">Restart</button>
-		</div>
-		<div class="col-xs-3"></div>
-	</div>
-	</div>
-
-
 	<script src="main.js"></script>
 </body>
 </html>

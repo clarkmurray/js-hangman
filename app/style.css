@@ -23,8 +23,15 @@ input[type="password"] {
 	border: none;
 }
 
-.showBord {
-	border: 1px solid blue;
+i {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+
+#createGuess {
+	width: 70px;
+	height: 40px;
 }
 
 #win {
@@ -35,27 +42,29 @@ input[type="password"] {
 	display: none;
 }
 
-#warning {
-	display: none;
-}
-
 #phraseDiv {
 	display: none;
+	margin-top: 30px;
 }
 
 #guessDiv {
 	display: none;
+	margin-top: 30px;
 }
 
 #guessPhraseDiv {
 	display: none;
 }
 
+#userPhrase {
+	margin: 0 auto;
+}
+
 #userGuess {
 	margin: 0 auto;
 }
 
-#incorrectLetters {
+#letterIncorrectLetters {
 	display: none;
 }
 
@@ -68,11 +77,6 @@ h1 {
 	margin: 0;
 	color: #1D2951;
 	text-align: center;
-}
-
-#showPhrase {
-	color: blue;
-	text-decoration: underline;
 }
 
 #showPhrase:hover {
@@ -90,24 +94,7 @@ h1 {
     align-items: center;
 }
 
-#goForGold {
-	color: blue;
-	text-decoration: underline;
-}
-
-#goForGold:hover {
-	cursor: pointer;
-}
-
-#noGold {
-	color: blue;
-	text-decoration: underline;
-}
-
-#noGold:hover {
-	cursor: pointer;
-}
-
+/* Flexbox */
 
 .row.is-flex {
     display: flex;
@@ -118,11 +105,6 @@ h1 {
     flex-direction: column;
 }
 
-/*
-* And with max cross-browser enabled.
-* Nobody should ever write this by hand. 
-* Use a preprocesser with autoprefixing.
-*/
 .row.is-flex {
     display: -webkit-box;
     display: -webkit-flex;

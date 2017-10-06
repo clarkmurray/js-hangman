@@ -22,23 +22,6 @@ document.onreadystatechange = function() {
    		}
 	});
 
-	document.getElementById("goForGold").addEventListener("click", function(e){
-	   var guessDiv = document.getElementById('guessDiv');
-	   var guessPhraseDiv = document.getElementById('guessPhraseDiv');
-	   guessDiv.style.display = "none";
-	   guessPhraseDiv.style.display = "block";
-	   warning.style.display = "block";
-	});
-
-	document.getElementById("noGold").addEventListener("click", function(e){
-	   var guessDiv = document.getElementById('guessDiv');
-	   var guessPhraseDiv = document.getElementById('guessPhraseDiv');
-	   var warning = document.getElementById("warning");
-	   warning.style.display = "none";
-	   guessDiv.style.display = "block";
-	   guessPhraseDiv.style.display = "none";
-	});
-
 	document.getElementById('userPhrase').addEventListener('keypress', function(event) {
 	    if (event.keyCode == 13) {
 	        document.getElementById('createPhrase').click();
@@ -66,7 +49,7 @@ function multiplayerStart() {
 	var startScreen = document.getElementById('startScreen');
 	var phraseDiv = document.getElementById('phraseDiv');
 	startScreen.style.display = "none";
-	phraseDiv.style.display = "flex";
+	phraseDiv.style.display = "block";
 }
 
 function createGallows() {
@@ -107,32 +90,25 @@ function victory() {
 	var guessPhraseDiv = document.getElementById('guessPhraseDiv');
 	var warning = document.getElementById("warning");
 	var phrase = document.getElementById('phrase');
-	warning.style.display = "none";
 	win.style.display = "block";
 	guessDiv.style.display = "none";
-	guessPhraseDiv.style.display = "flex";
+	guessPhraseDiv.style.display = "none";
 	phrase.style.color = "green";
 	document.getElementById('winAgain').focus();
 }
 
-
-function guessthePhrase() {
+function lose() {
+	lossNotification = document.getElementById('loss');
+	lossMessage = document.getElementById('lossMessage');
 	var warning = document.getElementById("warning");
-	var hailMary = document.getElementById("userPhraseGuess").value;
-	console.log(hailMary);
-	hailMary = hailMary.toUpperCase();
-	console.log(hailMary);
-	if (hailMary == phrase) {
-		phraseWindow.innerHTML = phrase;
-		victory();
-	}
-	else {
-		drawFullHangman();
-		console.log("Moving on to lose function");
-		lose();
-		console.log("lose function complete");
-	}
-};
+	var guessPhraseDiv = document.getElementById('guessPhraseDiv');
+	lossNotification.style.display = "block";
+	lossMessage.innerHTML = "You're out of guesses! The correct answer was " + phrase;
+	var guessDiv = document.getElementById('guessDiv');
+	guessDiv.style.display = "none";
+	guessPhraseDiv.style.display = "none";
+	document.getElementById('loseAgain').focus();
+}
 
 
 function generatePhrase() {
@@ -146,14 +122,14 @@ function generatePhrase() {
 function createPhraseArray() {
 	var phraseDiv = document.getElementById('phraseDiv');
 	var guessDiv = document.getElementById('guessDiv');
-	var incorrectDiv = document.getElementById('incorrectLetters');
+	var letterIncorrectDiv = document.getElementById('letterIncorrectLetters');
 	var gallowsDiv = document.getElementById('gameBoard');
 	phrase = phrase.toUpperCase();
 	splitPhrase = phrase.split('');
 	phrase = splitPhrase.join('');
 	phraseDiv.style.display = 'none';
 	guessDiv.style.display = 'flex';
-	incorrectDiv.style.display = 'flex';
+	letterIncorrectDiv.style.display = 'flex';
 	gallowsDiv.style.display = 'flex';
 	hidePhrase();
 }
@@ -180,20 +156,6 @@ Array.prototype.contains = function(guess) {
    return false;
 }
 
-function lose() {
-	lossNotification = document.getElementById('loss');
-	lossMessage = document.getElementById('lossMessage');
-	var warning = document.getElementById("warning");
-	var guessPhraseDiv = document.getElementById('guessPhraseDiv');
-	warning.style.display = "none";
-	lossNotification.style.display = "block";
-	lossMessage.innerHTML = "You're out of guesses! The correct answer was " + phrase;
-	var guessDiv = document.getElementById('guessDiv');
-	guessDiv.style.display = "none";
-	guessPhraseDiv.style.display = "none";
-	document.getElementById('loseAgain').focus();
-}
-
 
 function userGuess() {
 	var guess = document.getElementById("userGuess").value;
@@ -201,6 +163,7 @@ function userGuess() {
 	var guessTracker = false;
 	if (alreadyGuessed.contains(guess)) {
 		document.getElementById("userGuess").value = "";
+		alert("You've already guessed " + guess + "!");
 		return false;
 	}
 	hiddenPhrase = hiddenPhrase.split('');
@@ -258,6 +221,10 @@ function userGuess() {
 }
 
 
+
+/*------Validates characters as they are being typed------*/
+
+
 function isLetter(evt) {
     evt = (evt) ? evt : window.event;
     var charCode = (evt.which) ? evt.which : evt.keyCode;
@@ -280,9 +247,15 @@ function letterOrSpace(evt) {
 
 }
 
+/*------Restarts the Game------*/
+
 function restartGame() {
 	location.reload();
 }
+
+
+
+/*------Fetches Random Word from API------*/
 
 function randomWord() {
     var requestStr = "http://setgetgo.com/randomword/get.php";
