@@ -1,10 +1,6 @@
 # Task List
 
 
-[ ] Clean code
-[ ] Deploy
-
-
 ## Stretch Goals
 
 [ ] Line breaks in phrase (don't break in the middle of a word)
