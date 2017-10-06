@@ -247,7 +247,7 @@ function restartGame() {
 /*------Fetches Random Word from API------*/
 
 function randomWord() {
-    var requestStr = "http://setgetgo.com/randomword/get.php";
+    var requestStr = "https://setgetgo.com/randomword/get.php";
 
     $.ajax({
         type: "GET",
