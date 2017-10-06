@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/clarkmurray/js-hangman/issues"
   },
-  "homepage": "https://github.com/clarkmurray/js-hangman#readme"
+  "homepage": "https://github.com/clarkmurray/js-hangman#readme",
+  "dependencies": {
+    "express": "^4.16.0"
+  }
 }
